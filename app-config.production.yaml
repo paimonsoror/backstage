@@ -48,3 +48,10 @@ catalog:
     # This Backstage instance itself
     - type: url
       target: https://github.com/paimonsoror/backstage/blob/main/catalog-info.yaml
+
+    # Auto-generated entities for every other ArgoCD-managed app in the
+    # cluster (third-party charts with no repo of their own to hold a
+    # catalog-info.yaml) -- see homelab-charts/manifests/backstage-catalog
+    # and the generator script noted in its README.
+    - type: url
+      target: https://github.com/paimonsoror/homelab-charts/blob/main/manifests/backstage-catalog/cluster-apps.yaml
