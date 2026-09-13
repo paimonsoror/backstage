@@ -9,9 +9,8 @@ backend:
   # callers. When its value is "http://localhost:7007", it's strictly private
   # and can't be reached by others.
   baseUrl: https://backstage.sororlab.dev
-  # The listener can also be expressed as a single <host>:<port> string. In this case we bind to
-  # all interfaces, the most permissive setting. The right value depends on your specific deployment.
-  listen: ':7007'
+  # listen.port is injected by the Helm chart via APP_CONFIG_backend_listen_port
+  # (object form) -- a string form here conflicts with it at merge time.
   cors:
     origin: https://backstage.sororlab.dev
 
