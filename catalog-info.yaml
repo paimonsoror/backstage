@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage
+  description: Homelab CMDB / software catalog, running on the k3s cluster.
+  annotations:
+    github.com/project-slug: paimonsoror/backstage
+    backstage.io/techdocs-ref: dir:.
+    argocd/app-name: backstage
+spec:
+  type: service
+  owner: group:sororlab
+  lifecycle: production
