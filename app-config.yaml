@@ -167,7 +167,10 @@ auth:
   providers:
     # Authentik OIDC -- see https://backstage.io/docs/auth/oidc/provider
     oidc:
-      production:
+      # The frontend's OAuth2 client requests whichever environment key
+      # matches its build-time NODE_ENV -- provide both since that hasn't
+      # reliably resolved to "production" through this deploy pipeline.
+      development: &oidc-config
         clientId: ${AUTH_OIDC_CLIENT_ID}
         clientSecret: ${AUTH_OIDC_CLIENT_SECRET}
         metadataUrl: ${AUTH_OIDC_METADATA_URL}
@@ -175,6 +178,7 @@ auth:
         signIn:
           resolvers:
             - resolver: emailMatchingUserEntityProfileEmail
+      production: *oidc-config
   signInPage: oidc
   session:
     secret: ${AUTH_SESSION_SECRET}
