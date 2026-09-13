@@ -244,6 +244,10 @@ kubernetes:
           skipTLSVerify: false
           caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
           serviceAccountToken: ${K8S_SERVICE_ACCOUNT_TOKEN}
+          # metrics-server is intentionally not installed on this cluster
+          # (disabled in k3s.sh, superseded by kube-prometheus-stack) --
+          # skip the metrics.k8s.io lookups so they don't 404 on every entity.
+          skipMetricsLookup: true
 
 argocd:
   appLocatorMethods:
