@@ -239,8 +239,7 @@ kubernetes:
           authProvider: serviceAccount
           skipTLSVerify: false
           caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-          serviceAccountToken:
-            $file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          serviceAccountToken: ${K8S_SERVICE_ACCOUNT_TOKEN}
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
 permission:
