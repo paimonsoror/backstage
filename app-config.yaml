@@ -172,9 +172,9 @@ auth:
         clientSecret: ${AUTH_OIDC_CLIENT_SECRET}
         metadataUrl: ${AUTH_OIDC_METADATA_URL}
         prompt: auto
-      signIn:
-        resolvers:
-          - resolver: emailMatchingUserEntityProfileEmail
+        signIn:
+          resolvers:
+            - resolver: emailMatchingUserEntityProfileEmail
   signInPage: oidc
   session:
     secret: ${AUTH_SESSION_SECRET}
@@ -240,6 +240,14 @@ kubernetes:
           skipTLSVerify: false
           caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
           serviceAccountToken: ${K8S_SERVICE_ACCOUNT_TOKEN}
+
+argocd:
+  appLocatorMethods:
+    - type: config
+      instances:
+        - name: homelab
+          url: http://argocd-server.argocd.svc.cluster.local
+          token: ${ARGOCD_AUTH_TOKEN}
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
 permission:
