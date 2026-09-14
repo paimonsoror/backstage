@@ -248,6 +248,12 @@ kubernetes:
           # (disabled in k3s.sh, superseded by kube-prometheus-stack) --
           # skip the metrics.k8s.io lookups so they don't 404 on every entity.
           skipMetricsLookup: true
+  # Courier: OAuthClient objects appear on the Kubernetes tab of each
+  # oauth-client Resource entity (matched by its label selector).
+  customResources:
+    - group: 'courier.sororlab.dev'
+      apiVersion: 'v1alpha1'
+      plural: 'oauthclients'
 
 argocd:
   appLocatorMethods:

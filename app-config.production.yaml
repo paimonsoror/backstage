@@ -45,6 +45,21 @@ catalog:
     - type: url
       target: https://github.com/paimonsoror/milas-spell-and-tumble/blob/main/catalog-info.yaml
 
+    # Courier: team groups, the OAuth client request template, and one
+    # Resource per requested client (requests/<team>/<name>.catalog.yml)
+    - type: url
+      target: https://github.com/paimonsoror/courier/blob/main/backstage/catalog/teams.yaml
+      rules:
+        - allow: [Group]
+    - type: url
+      target: https://github.com/paimonsoror/courier/blob/main/backstage/templates/oauth-client/template.yaml
+      rules:
+        - allow: [Template]
+    - type: url
+      target: https://github.com/paimonsoror/courier/blob/main/requests/*/*.catalog.yml
+      rules:
+        - allow: [Resource]
+
     # This Backstage instance itself
     - type: url
       target: https://github.com/paimonsoror/backstage/blob/main/catalog-info.yaml
